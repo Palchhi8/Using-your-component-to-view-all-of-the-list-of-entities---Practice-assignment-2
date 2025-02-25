@@ -1,39 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// App.jsx
+import React from "react";
+import PostCard from "./components/postcard";
+import "./App.css";
 
-function App() {
+const posts = [
+  {
+    id: 1,
+    username: "JohnDoe",
+    profilePic: "https://i.pravatar.cc/100?img=1",
+    content: "Just had the best coffee in town! ☕ #MorningVibes",
+  },
+  {
+    id: 2,
+    username: "JaneSmith",
+    profilePic: "https://i.pravatar.cc/100?img=2",
+    content: "Loving the sunset views from my rooftop! 🌅 #GoldenHour",
+  },
+  {
+    id: 3,
+    username: "Alex99",
+    profilePic: "https://i.pravatar.cc/100?img=3",
+    content: "Coding all night! 🚀 Who else loves React? #DevLife",
+  },
+];
 
-  const initialPosts = [
-    {
-      id: 1,
-      profileImage: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?cs=srgb&dl=pexels-pixabay-220453.jpg&fm=jpg',
-      username: 'alice',
-      content: 'This is my first post!',
-      isLiked: false,
-    },
-    {
-      id: 2,
-      profileImage: 'https://writestylesonline.com/wp-content/uploads/2016/08/Follow-These-Steps-for-a-Flawless-Professional-Profile-Picture.jpg',
-      username: 'bob',
-      content: 'Loving this social media app.',
-      isLiked: true,
-    },
-    {
-      id: 3,
-      profileImage: 'https://png.pngtree.com/png-clipart/20230927/original/pngtree-man-avatar-image-for-profile-png-image_13001882.png',
-      username: 'charlie',
-      content: 'Just another day...',
-      isLiked: false,
-    },
-  ];
-
+const App = () => {
   return (
-    <>
-      
-    </>
-  )
-}
+    <div className="app">
+      <h1 className="app-header">Social Feed</h1>
+      <div className="post-container">
+        {posts.map((post) => (
+          <PostCard key={post.id} post={post} />
+        ))}
+      </div>
+    </div>
+  );
+};
 
-export default App
+export default App;
